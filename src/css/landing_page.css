@@ -1,0 +1,135 @@
+/* ========== NAVEGAÇÃO ENTRE SEÇÕES ========== */
+.__secoes-nav {
+    position: fixed;
+    left: var(--espaco-pequeno);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-pequeno);
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--espaco-pequeno);
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+}
+
+.__secao-link {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.__secao-link:hover {
+    background: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+}
+
+/* ========== SEÇÕES DE CONTEÚDO ========== */
+.__secao {
+    padding: var(--espaco-grande) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    scroll-margin-top: 80px;
+}
+
+.__secao:nth-child(odd) {
+    background-color: var(--cor-fundo);
+}
+
+.__secao:nth-child(even) {
+    background-color: var(--cor-texto-claro);
+}
+
+.__secao-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--espaco-medio);
+}
+
+.__secao-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.__secao-imagem {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.__secao-imagem img {
+    max-width: 100%;
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+}
+
+.__titulo, .__titulo-footer {
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: var(--espaco-pequeno);
+    color: var(--cor-fundo-escuro);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.__titulo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--cor-destaque);
+}
+
+.__paragrafo {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+    .__secoes-nav {
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        bottom: var(--espaco-pequeno);
+        flex-direction: row;
+        width: 90%;
+        justify-content: center;
+        flex-wrap: wrap;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .__secao-link {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .__secao {
+        padding: var(--espaco-medio) 0;
+    }
+
+    .__secao-container {
+        flex-direction: column;
+    }
+
+    .__secao-texto, .__secao-imagem {
+        min-width: 100%;
+    }
+}

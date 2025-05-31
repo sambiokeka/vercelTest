@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Enchente | AlertaEnchentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="__header">
+        <div class="__header-container">
+            <div class="__logo">Alerta<span>Enchentes</span></div>
+            <nav class="__nav">
+                <a href="../../index.html" class="__nav-link">Home</a>
+                <a href="../pages/cadastra_enchente.html" class="__nav-link ativo">Cadastrar Enchente</a>
+                <a href="../pages/ocorrencias.html" class="__nav-link">Ver Ocorrências</a>
+                <a href="orientacoes.html" class="__nav-link">Orientações</a>
+            </nav>
+            <div class="__menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="__mobile-nav" id="mobileNav">
+        <div class="__close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <a href="index.html" class="__mobile-link">Home</a>
+        <a href="cadastro.html" class="__mobile-link ativo">Cadastrar Enchente</a>
+        <a href="ocorrencias.html" class="__mobile-link">Ver Ocorrências</a>
+        <a href="orientacoes.html" class="__mobile-link">Orientações</a>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="__cadastro-container">
+        <h1 class="__cadastro-titulo"><i class="fas fa-water"></i> Cadastrar Ocorrência de Enchente</h1>
+        
+    <form class="__cadastro-form" action="http://localhost:5000/cadastrar" method="post">
+        <div class="__form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade"
+                placeholder="Digite o nome da cidade"
+                pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+"
+                title="Por favor, digite apenas letras"
+                required>
+            <small class="__input-hint">Exemplo: São Paulo, Belo Horizonte</small>
+        </div>
+
+        <div class="__form-group">
+            <label for="nivel-agua">Nível da Água (em metros)</label>
+            <input type="number" id="nivel-agua" name="nivel_agua" min="0.1" max="10" step="0.1">
+            <div class="__range-labels">
+                <span>0.1m</span>
+                <span>10m</span>
+            </div>
+        </div>
+
+        <div class="__form-group">
+            <label for="pessoas-afetadas">Pessoas Afetadas</label>
+            <input type="number" id="pessoas-afetadas" name="pessoas_afetadas" min="1">
+        </div>
+
+        <div class="__form-group">
+            <label for="data">Data da Ocorrência</label>
+            <input type="date" id="data" name="data_enchente"  min="1900-01-01" max="2099-12-31" required>
+        </div>
+
+        <div class="__form-group">
+            <label for="foto">Foto (opcional)</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <!-- Este campo será ignorado no backend -->
+        </div>
+
+        <button type="submit" class="__form-submit">
+            <i class="fas fa-paper-plane"></i> Enviar Cadastro
+        </button>
+    </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="__footer">
+        <div class="__footer-container">
+            <h3 class="__titulo-footer" style="color: var(--cor-texto-claro); border-color: var(--cor-destaque);">Sistema de Alerta de Enchentes</h3>
+            <p class="__paragrafo">Tecnologia a serviço da segurança e prevenção</p>
+            <div class="__social-links">
+                <a href="#" class="__social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="__paragrafo">&copy; 2025 Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>

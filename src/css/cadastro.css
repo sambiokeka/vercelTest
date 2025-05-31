@@ -1,0 +1,106 @@
+/* ========== ESTILOS DO FORMULÁRIO ========== */
+.__cadastro-container {
+    width: 90%;
+    max-width: 800px;
+    margin: var(--espaco-grande) auto;
+    padding: var(--espaco-medio);
+    background-color: var(--cor-texto-claro);
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+}
+
+.__cadastro-titulo {
+    font-family: var(--fonte-titulos);
+    font-weight: 700;
+    color: var(--cor-fundo-escuro);
+    text-align: center;
+    margin-bottom: var(--espaco-medio);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaco-pequeno);
+}
+
+.__cadastro-titulo i {
+    color: var(--cor-primaria);
+}
+
+.__cadastro-form {
+    display: grid;
+    gap: var(--espaco-medio);
+}
+
+.__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.__form-group label {
+    font-weight: 600;
+    color: var(--cor-fundo-escuro);
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+}
+
+.__form-group input,
+.__form-group select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--borda-arredondada);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.__form-group input:focus,
+.__form-group select:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.__form-group input[type="number"] {
+    width: 100%;
+}
+
+.__range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.__form-submit {
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: var(--borda-arredondada);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaco-pequeno);
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+}
+
+.__form-submit:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+    .__cadastro-container {
+        margin: var(--espaco-medio) auto;
+        padding: var(--espaco-pequeno);
+    }
+    
+    .__cadastro-titulo {
+        font-size: 1.5rem;
+    }
+}

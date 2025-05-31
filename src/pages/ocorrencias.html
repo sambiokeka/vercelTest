@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Enchente | AlertaEnchentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/ocorrencias.css">
+    <style>
+        .content_ocorencias {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="__header">
+        <div class="__header-container">
+            <div class="__logo">Alerta<span>Enchentes</span></div>
+            <nav class="__nav">
+                <a href="../../index.html" class="__nav-link">Home</a>
+                <a href="../pages/cadastra_enchente.html" class="__nav-link">Cadastrar Enchente</a>
+                <a href="../pages/ocorrencias.html" class="__nav-link ativo">Ver Ocorrências</a>
+                <a href="orientacoes.html" class="__nav-link">Orientações</a>
+            </nav>
+            <div class="__menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="__mobile-nav" id="mobileNav">
+        <div class="__close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <a href="index.html" class="__mobile-link">Home</a>
+        <a href="cadastro.html" class="__mobile-link ativo">Cadastrar Enchente</a>
+        <a href="ocorrencias.html" class="__mobile-link">Ver Ocorrências</a>
+        <a href="orientacoes.html" class="__mobile-link">Orientações</a>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content_ocorencias">
+        <h1>Ocorrências de Enchentes</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cidade</th>
+                    <th>Nível da Água (m)</th>
+                    <th>Pessoas Afetadas</th>
+                    <th>Data da Enchente</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-ocorrencias"></tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('http://127.0.0.1:5000/api/ocorrencias')
+        .then(response => response.json())
+        .then(data => {
+            const tabela = document.getElementById('tabela-ocorrencias');
+            data.forEach(registro => {
+                const linha = document.createElement('tr');
+                linha.innerHTML = `
+                    <td data-label="ID">${registro.id}</td>
+                    <td data-label="Cidade">${registro.cidade}</td>
+                    <td data-label="Nível da Água (m)">${registro.nivel_agua}</td>
+                    <td data-label="Pessoas Afetadas">${registro.pessoas_afetadas}</td>
+                    <td data-label="Data da Enchente">${registro.data_enchente}</td>
+                `;
+                tabela.appendChild(linha);
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao buscar ocorrências:', error);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="__footer">
+        <div class="__footer-container">
+            <h3 class="__titulo-footer" style="color: var(--cor-texto-claro); border-color: var(--cor-destaque);">Sistema de Alerta de Enchentes</h3>
+            <p class="__paragrafo">Tecnologia a serviço da segurança e prevenção</p>
+            <div class="__social-links">
+                <a href="#" class="__social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="__paragrafo">&copy; 2025 Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>

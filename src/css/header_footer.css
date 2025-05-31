@@ -1,0 +1,218 @@
+/* ========== RESET CSS ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================GERAL===============================*/
+
+.__paragrafo {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.__titulo {
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: var(--espaco-pequeno);
+    color: var(--cor-fundo-escuro);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* ========== VARIÁVEIS GLOBAIS ========== */
+:root {
+    /* Cores */
+    --cor-primaria: #1E90FF;
+    --cor-secundaria: #0066CC;
+    --cor-destaque: #FFD700;
+    --cor-texto: #333333;
+    --cor-texto-claro: #FFFFFF;
+    --cor-fundo: #F5F9FF;
+    --cor-fundo-escuro: #1E3C72;
+       
+    /* Espaçamentos */
+    --espaco-grande: 80px;
+    --espaco-medio: 40px;
+    --espaco-pequeno: 20px;
+    
+    /* Bordas */
+    --borda-arredondada: 10px;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Fontes */
+    --fonte-titulos: 'Poppins', sans-serif;
+    --fonte-texto: 'Open Sans', sans-serif;
+}
+
+/* ========== HEADER ========== */
+
+.__header, .__logo, .__nav-link, .__mobile-link {
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+}
+
+.__header {
+    background: linear-gradient(to right, var(--cor-fundo-escuro), var(--cor-primaria));
+    padding: var(--espaco-pequeno) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra);
+}
+
+.__header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.__logo {
+    color: var(--cor-texto-claro);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.__logo span {
+    color: var(--cor-destaque);
+}
+
+.__nav {
+    display: flex;
+    gap: var(--espaco-medio);
+}
+
+.__nav-link {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.__nav-link:hover {
+    color: var(--cor-destaque);
+}
+
+.__menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--cor-texto-claro);
+    font-size: 24px;
+}
+
+.__nav-link.ativo,
+.__mobile-link.ativo {
+    color: var(--cor-destaque) !important;
+}
+
+.__nav-link.ativo:hover,
+.__mobile-link.ativo:hover {
+    opacity: 0.9;
+    
+}
+
+/* ========== FOOTER ========== */
+.__footer {
+    background: var(--cor-fundo-escuro);
+    color: var(--cor-texto-claro);
+    padding: var(--espaco-grande) 0;
+    text-align: center;
+}
+
+.__footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--fonte-titulos);
+}
+
+.__titulo-footer {
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: var(--espaco-pequeno);
+    color: var(--cor-fundo-escuro);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.__social-links {
+    margin: var(--espaco-pequeno) 0;
+}
+
+.__social-link {
+    color: var(--cor-texto-claro);
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.__social-link:hover {
+    color: var(--cor-destaque);
+}
+
+/* ========== MENU MOBILE ========== */
+.__mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--cor-fundo-escuro);
+    z-index: 1100;
+    transition: right 0.3s ease;
+    padding: var(--espaco-grande) var(--espaco-medio);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-medio);
+}
+
+.__mobile-nav.active {
+    right: 0;
+}
+
+.__mobile-link {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-size: 18px;
+    padding: var(--espaco-pequeno) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.3s;
+}
+
+.__mobile-link:hover {
+    color: var(--cor-destaque);
+}
+
+.__close-menu {
+    position: absolute;
+    top: var(--espaco-pequeno);
+    right: var(--espaco-pequeno);
+    color: var(--cor-texto-claro);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+    :root {
+        --espaco-grande: 60px;
+        --espaco-medio: 30px;
+    }
+
+    .__nav {
+        display: none;
+    }
+
+    .__menu-toggle {
+        display: block;
+    }
+}

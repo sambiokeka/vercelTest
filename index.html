@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Alerta de Enchentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/header_footer.css">
+    <link rel="stylesheet" href="./src/css/landing_page.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="__header">
+        <div class="__header-container">
+            <div class="__logo">Alerta<span>Enchentes</span></div>
+            <nav class="__nav">
+                <a href="./index.html" class="__nav-link ativo">Home</a>
+                <a href="./src/pages/cadastra_enchente.html" class="__nav-link">Cadastrar Enchente</a>
+                <a href="/GlobalSolution/src/pages/ocorrencias.html" class="__nav-link">Ver Ocorrências</a>
+                <a href="orientacoes.html" class="__nav-link">Orientações</a>
+            </nav>
+            <div class="__menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Menu Mobile -->
+    <div class="__mobile-nav" id="mobileNav">
+        <div class="__close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <a href="index.html" class="__mobile-link ativo">Home</a>
+        <a href="cadastro.html" class="__mobile-link">Cadastrar Enchente</a>
+        <a href="ocorrencias.html" class="__mobile-link">Ver Ocorrências</a>
+        <a href="orientacoes.html" class="__mobile-link">Orientações</a>
+    </div>
+
+    <!-- Menu de Navegação entre Seções -->
+    <nav class="__secoes-nav">
+        <a href="#problema" class="__secao-link">O Problema</a>
+        <a href="#tecnologias" class="__secao-link">Tecnologias</a>
+        <a href="#objetivos" class="__secao-link">Objetivos</a>
+        <a href="#publico" class="__secao-link">Público-Alvo</a>
+        <a href="#beneficios" class="__secao-link">Benefícios</a>
+        <a href="#solucao" class="__secao-link">Solução</a>
+    </nav>
+
+    <!-- Seção 1: O Problema -->
+    <section id="problema" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-texto">
+                <h2 class="__titulo">O Problema das Enchentes</h2>
+                <p class="__paragrafo">Enchentes causam danos materiais e perdas humanas em áreas urbanas e rurais.</p>
+                <p class="__paragrafo">Falta de alertas precoces agrava os prejuízos e dificulta a prevenção eficaz.</p>
+            </div>
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rua alagada com carros parcialmente submersos">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2: Tecnologias -->
+    <section id="tecnologias" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sensores IoT sendo instalados em bueiro">
+            </div>
+            <div class="__secao-texto">
+                <h2 class="__titulo">Tecnologias Utilizadas</h2>
+                <p class="__paragrafo">Sensores IoT monitoram níveis de água em tempo real em pontos estratégicos.</p>
+                <p class="__paragrafo">Inteligência Artificial prevê riscos com base em dados históricos e meteorológicos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Objetivos -->
+    <section id="objetivos" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-texto">
+                <h2 class="__titulo">Objetivos da Solução</h2>
+                <p class="__paragrafo">Reduzir em 60% os danos causados por enchentes nos próximos 3 anos.</p>
+                <p class="__paragrafo">Alertar a população com até 2 horas de antecedência sobre riscos iminentes.</p>
+            </div>
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Visão aérea de cidade com sistema de drenagem">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4: Público-Alvo -->
+    <section id="publico" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Família em área de risco de enchente">
+            </div>
+            <div class="__secao-texto">
+                <h2 class="__titulo">Público-Alvo</h2>
+                <p class="__paragrafo">Moradores de áreas de risco e autoridades municipais responsáveis.</p>
+                <p class="__paragrafo">Empresas de infraestrutura e seguradoras que lidam com danos ambientais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: Benefícios -->
+    <section id="beneficios" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-texto">
+                <h2 class="__titulo">Benefícios da Solução</h2>
+                <p class="__paragrafo">Proteção de vidas e redução de prejuízos com alertas precisos.</p>
+                <p class="__paragrafo">Otimização de recursos públicos com ações preventivas direcionadas.</p>
+            </div>
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1600267165477-6d4cc741b379?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Comunidade recebendo alerta no celular">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 6: Solução no Dia a Dia -->
+    <section id="solucao" class="__secao">
+        <div class="__secao-container">
+            <div class="__secao-imagem">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Aplicativo mostrando alerta de enchente">
+            </div>
+            <div class="__secao-texto">
+                <h2 class="__titulo">Solução no Dia a Dia</h2>
+                <p class="__paragrafo">Alertas via SMS e app ajudam famílias a se protegerem a tempo.</p>
+                <p class="__paragrafo">Relatórios automáticos auxiliam no planejamento urbano sustentável.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="__footer">
+        <div class="__footer-container">
+            <h3 class="__titulo-footer" style="color: var(--cor-texto-claro); border-color: var(--cor-destaque);">Sistema de Alerta de Enchentes</h3>
+            <p class="__paragrafo">Tecnologia a serviço da segurança e prevenção</p>
+            <div class="__social-links">
+                <a href="#" class="__social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="__social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="__paragrafo">&copy; 2025 Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+</body>
+</html>
