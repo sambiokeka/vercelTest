@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/;
                 return regex.test(cidade) && cidade.trim().length >= 3 && cidade.trim().length <= 30;
             }
-                        
+            
             if (!cidade || !data) {
                 alert('Por favor, preencha todos os campos obrigatórios!');
                 return;
@@ -24,9 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Por favor, digite um nome de cidade válido (mínimo 3 letras, máximo 30)');
                 return;
             }
-
-            // Envio AJAX para o Flask
-            fetch('http://localhost:5000/cadastrar', {
+            
+            fetch('http://localhost/database/conexaoFrontBackEndBD.php?rota=cadastrar',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `cidade=${encodeURIComponent(cidade)}&nivel_agua=${encodeURIComponent(nivelAgua)}&pessoas_afetadas=${encodeURIComponent(pessoasAfetadas)}&data_enchente=${encodeURIComponent(data)}`
