@@ -8,21 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/header_footer.css">
     <link rel="stylesheet" href="../css/ocorrencias.css">
-    <style>
-        .content_ocorencias {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: 60px auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -46,50 +31,70 @@
         <div class="__close-menu" id="closeMenu">
             <i class="fas fa-times"></i>
         </div>
-        <a href="index.html" class="__mobile-link">Home</a>
-        <a href="cadastro.html" class="__mobile-link ativo">Cadastrar Enchente</a>
-        <a href="ocorrencias.html" class="__mobile-link">Ver Ocorrências</a>
+        <a href="../../index.html" class="__mobile-link">Home</a>
+        <a href="../pages/cadastra_enchente.html" class="__mobile-link">Cadastrar Enchente</a>
+        <a href="../pages/cadastra_enchente.html" class="__mobile-link ativo">Cadastrar Enchente</a>
         <a href="orientacoes.html" class="__mobile-link">Orientações</a>
     </div>
 
-    <!-- Conteúdo Principal -->
-    <div class="content_ocorencias">
-        <h1>Ocorrências de Enchentes</h1>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cidade</th>
-                    <th>Nível da Água (m)</th>
-                    <th>Pessoas Afetadas</th>
-                    <th>Data da Enchente</th>
-                </tr>
-            </thead>
-            <tbody id="tabela-ocorrencias"></tbody>
-        </table>
-    </div>
+<!-- Conteúdo Principal -->
+    <main class="__conteudo">
+        <div class="content_ocorencias">
+            <h1>Ocorrências de Enchentes</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cidade</th>
+                        <th>Nível da Água (m)</th>
+                        <th>Pessoas Afetadas</th>
+                        <th>Data da Enchente</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-ocorrencias"></tbody>
+            </table>
+        </div>
 
-    <script>
-        fetch('http://127.0.0.1:5000/api/ocorrencias')
-        .then(response => response.json())
-        .then(data => {
-            const tabela = document.getElementById('tabela-ocorrencias');
-            data.forEach(registro => {
-                const linha = document.createElement('tr');
-                linha.innerHTML = `
-                    <td data-label="ID">${registro.id}</td>
-                    <td data-label="Cidade">${registro.cidade}</td>
-                    <td data-label="Nível da Água (m)">${registro.nivel_agua}</td>
-                    <td data-label="Pessoas Afetadas">${registro.pessoas_afetadas}</td>
-                    <td data-label="Data da Enchente">${registro.data_enchente}</td>
+        <script>
+            fetch('http://127.0.0.1:5000/api/ocorrencias')
+            .then(response => response.json())
+            .then(data => {
+                const tabela = document.getElementById('tabela-ocorrencias');
+                tabela.innerHTML = "";
+
+                if (!data.length) {
+                    // Se não há ocorrências, mostra mensagem na tabela
+                    tabela.innerHTML = `
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Nenhuma ocorrência registrada.</td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                data.forEach(registro => {
+                    const linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td data-label="ID">${registro.id}</td>
+                        <td data-label="Cidade">${registro.cidade}</td>
+                        <td data-label="Nível da Água (m)">${registro.nivel_agua ?? 'Desconhecido'}</td>
+                        <td data-label="Pessoas Afetadas">${registro.pessoas_afetadas ?? 'Desconhecido'}</td>
+                        <td data-label="Data da Enchente">${new Date(registro.data_enchente).toLocaleDateString('pt-BR')}</td>
+                    `;
+                    tabela.appendChild(linha);
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao buscar ocorrências:', error);
+                const tabela = document.getElementById('tabela-ocorrencias');
+                tabela.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center;">Erro ao buscar ocorrências.</td>
+                    </tr>
                 `;
-                tabela.appendChild(linha);
             });
-        })
-        .catch(error => {
-            console.error('Erro ao buscar ocorrências:', error);
-        });
-    </script>
+        </script>
+    </main>
 
     <!-- Footer -->
     <footer class="__footer">
@@ -105,7 +110,7 @@
             <p class="__paragrafo">&copy; 2025 Todos os direitos reservados</p>
         </div>
     </footer>
-
-    <script src="../js/cadastro.js"></script>
+    <script src="../js/servers.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

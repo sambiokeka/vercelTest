@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             function validarCidade(cidade) {
                 const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/;
-                return regex.test(cidade) && cidade.trim().length >= 3;
+                return regex.test(cidade) && cidade.trim().length >= 3 && cidade.trim().length <= 30;
             }
-            
+                        
             if (!cidade || !data) {
                 alert('Por favor, preencha todos os campos obrigatórios!');
                 return;
             }
             
             if (!validarCidade(cidade)) {
-                alert('Por favor, digite um nome de cidade válido (mínimo 3 letras)');
+                alert('Por favor, digite um nome de cidade válido (mínimo 3 letras, máximo 30)');
                 return;
             }
 

@@ -1,3 +1,24 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+
+.__conteudo {
+    flex: 1;
+}
+
+.content_ocorencias {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 60px auto;
+}
 
 h1 {
   font-family: var(--fonte-titulos);
@@ -12,6 +33,7 @@ h1 {
 table {
   width: 100%;
   border-collapse: collapse;
+  font-family: var(--fonte-titulos);
   background-color: #fff;
   border-radius: var(--borda-arredondada);
   box-shadow: var(--sombra);
@@ -65,5 +87,100 @@ tbody tr:hover {
     font-weight: bold;
     white-space: nowrap;
     content: attr(data-label);
+  }
+}
+
+td[data-label="Data da Enchente"] {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+td[data-label="Data da Enchente"],
+th:nth-child(5) {
+  text-align: center;
+}
+
+td[data-label="Pessoas Afetadas"] {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+td[data-label="Pessoas Afetadas"],
+th:nth-child(4) {
+  text-align: center;
+}
+
+td[data-label="Nível da Água (m)"] {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+td[data-label="Nível da Água (m)"],
+th:nth-child(3) {
+  text-align: center;
+}
+
+td[data-label="Cidade"] {
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+td[data-label="Cidade"],
+th:nth-child(2) {
+  text-align: center;
+}
+
+td[data-label="ID"] {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+td[data-label="ID"],
+th:nth-child(1) {
+  text-align: center;
+}
+
+td[data-label="Cidade"] {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  td[data-label="Cidade"] {
+    white-space: normal !important;
+    word-break: break-word;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  td {
+    display: block; 
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  td::before {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    width: 45%;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  #tabela-ocorrencias td[colspan="5"] {
+    text-align: center !important;
+    display: block;
+    width: 100%;
+    padding: 1em;
   }
 }
