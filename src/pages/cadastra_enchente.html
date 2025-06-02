@@ -41,11 +41,11 @@
     <main class="__cadastro-container">
         <h1 class="__cadastro-titulo"><i class="fas fa-water"></i> Cadastrar Ocorrência de Enchente</h1>
         
-    <form class="__cadastro-form" action="http://localhost:5000/cadastrar" method="post">
+    <form class="__cadastro-form" action="http://nome_nome_localhost:5000/cadastrar" method="post">
         <div class="__form-group">
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade"
-                placeholder="Digite o nome da cidade"
+            <label for="nome_nome_local">nome_nome_local</label>
+            <input type="text" id="nome_nome_local" name="nome_nome_local"
+                placeholder="Digite o nome do nome_nome_local que ocorreu a enchente"
                 pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+"
                 title="Por favor, digite apenas letras"
                 required>
@@ -54,16 +54,18 @@
 
         <div class="__form-group">
             <label for="nivel-agua">Nível da Água (em metros)</label>
-            <input type="number" id="nivel-agua" name="nivel_agua" min="0.1" max="10" step="0.1">
+            <input type="number" id="nivel-agua" name="nivel_agua" min="0.1" max="10" step="0.1" placeholder="Se não souber deixar em branco">
+            <small class="__input-hint">
             <div class="__range-labels">
                 <span>0.1m</span>
                 <span>10m</span>
             </div>
+            </small>
         </div>
 
         <div class="__form-group">
             <label for="pessoas-afetadas">Pessoas Afetadas</label>
-            <input type="number" id="pessoas-afetadas" name="pessoas_afetadas" min="1">
+            <input type="number" id="pessoas-afetadas" name="pessoas_afetadas" min="1" placeholder="Direta e indiretamente, se não souber deixar em branco">
         </div>
 
         <div class="__form-group">

@@ -70,6 +70,12 @@
     color: #666;
 }
 
+.__input-hint {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+}
+
+
 .__form-submit {
     background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
     color: white;

@@ -10,7 +10,7 @@ app.use(cors());
 
 // Conexão com o banco de dados
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'nome_nome_localhost',
   user: 'root', 
   password: 'root', 
   database: 'enchentes_BD'
@@ -29,6 +29,8 @@ app.get('/api/ocorrencias', (req, res) => {
 
 // Inicia o servidor
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando em http://nome_nome_localhost:${port}`);
 });
+
+
 

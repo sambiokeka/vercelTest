@@ -5,30 +5,31 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const cidade = document.getElementById('cidade').value;
+            const nome_nome_local = document.getElementById('nome_nome_local').value;
             const nivelAgua = document.getElementById('nivel-agua').value;
             const pessoasAfetadas = document.getElementById('pessoas-afetadas').value;
             const data = document.getElementById('data').value;
             
-            function validarCidade(cidade) {
+            function validarnome_nome_local(nome_nome_local) {
                 const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/;
-                return regex.test(cidade) && cidade.trim().length >= 3 && cidade.trim().length <= 30;
+                return regex.test(nome_nome_local) && nome_nome_local.trim().length >= 3 && nome_nome_local.trim().length <= 30;
             }
-            
-            if (!cidade || !data) {
+                        
+            if (!nome_nome_local || !data) {
                 alert('Por favor, preencha todos os campos obrigatórios!');
                 return;
             }
             
-            if (!validarCidade(cidade)) {
-                alert('Por favor, digite um nome de cidade válido (mínimo 3 letras, máximo 30)');
+            if (!validarnome_nome_local(nome_nome_local)) {
+                alert('Por favor, digite um nome de nome_nome_local válido (mínimo 3 letras, máximo 30)');
                 return;
             }
-            
-            fetch('http://localhost/database/conexaoFrontBackEndBD.php?rota=cadastrar',{
+
+            // Envio AJAX para o Flask
+            fetch('http://nome_nome_localhost:5000/cadastrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `cidade=${encodeURIComponent(cidade)}&nivel_agua=${encodeURIComponent(nivelAgua)}&pessoas_afetadas=${encodeURIComponent(pessoasAfetadas)}&data_enchente=${encodeURIComponent(data)}`
+                body: `nome_nome_local=${encodeURIComponent(nome_nome_local)}&nivel_agua=${encodeURIComponent(nivelAgua)}&pessoas_afetadas=${encodeURIComponent(pessoasAfetadas)}&data_enchente=${encodeURIComponent(data)}`
             })
             .then(response => response.json())
             .then(data => {
