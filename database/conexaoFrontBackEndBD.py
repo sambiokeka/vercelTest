@@ -10,7 +10,7 @@ CORS(app)
 DB_CONFIG = {
     "user": "root", # coloca seu usuario do mysql, essa é a minha no caso
     "password": "root", # sua senha do mysql, essa é a minha no caso
-    "host": "nome_nome_localhost",
+    "host": "localhost",
     "database": "enchentes_BD"
 }
 
@@ -19,7 +19,7 @@ def conectar_mysql():
 
 @app.route("/cadastrar", methods=["POST"])
 def cadastrar():
-    nome_nome_local = request.form.get("nome_nome_local")
+    nome_local = request.form.get("nome_local")
     nivel_agua = request.form.get("nivel_agua")
     pessoas_afetadas = request.form.get("pessoas_afetadas")
     data_enchente = request.form.get("data_enchente")
@@ -37,10 +37,10 @@ def cadastrar():
     conn = conectar_mysql()
     cursor = conn.cursor()
     query = """
-        INSERT INTO registros (nome_nome_local, nivel_agua, pessoas_afetadas, data_enchente)
+        INSERT INTO registros (nome_local, nivel_agua, pessoas_afetadas, data_enchente)
         VALUES (%s, %s, %s, %s)
     """
-    cursor.execute(query, (nome_nome_local, nivel_agua, pessoas_afetadas, data_enchente))
+    cursor.execute(query, (nome_local, nivel_agua, pessoas_afetadas, data_enchente))
     conn.commit()
     cursor.close()
     conn.close()

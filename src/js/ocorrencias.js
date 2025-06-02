@@ -8,7 +8,7 @@ function formatarDataAjustada(dataStr) {
     if (!dataStr) return "Data desconhecida";
     const date = new Date(dataStr);
     date.setDate(date.getDate() + 1); // Corrige para evitar -1 dia devido ao timezone
-    return date.tonome_nome_localeDateString('pt-BR');
+    return date.toLocaleDateString('pt-BR'); // Corrigido aqui
 }
 
 function renderizarOcorrencias() {
@@ -34,7 +34,7 @@ function renderizarOcorrencias() {
         card.className = '__ocorrencia-card';
         card.innerHTML = `
             <div class="__ocorrencia-header">
-                <h3>${registro.nome_nome_local}</h3>
+                <h3>${registro.nome_local}</h3>
                 <span class="__ocorrencia-data">${formatarDataAjustada(registro.data_enchente)}</span>
             </div>
             <div class="__ocorrencia-body">
@@ -48,7 +48,7 @@ function renderizarOcorrencias() {
                 </div>
                 <div class="__ocorrencia-info">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span><strong>nome_nome_local:</strong> ${registro.nome_nome_local ?? "Desconhecido"}</span>
+                    <span><strong>Local:</strong> ${registro.nome_local ?? "Desconhecido"}</span>
                 </div>
             </div>
         `;
